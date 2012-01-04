@@ -271,13 +271,6 @@ ta statefip if vote_eligible == 1, summarize(employment_status_un) nosta
 ta statefip if vote_eligible == 1, summarize(employment_prob_em) nosta
 ta statefip if vote_eligible == 1, summarize(employment_status_em) nosta
 
-ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta
-ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_status_nilf) nosta
-ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_prob_un) nosta
-ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_status_un) nosta
-ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_prob_em) nosta
-ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_status_em) nosta
-
 ta gender_female consumer_smarstat_m if vote_eligible == 1, summarize(employment_status_em) nosta nomean
 ta gender_female consumer_smarstat_m if vote_eligible == 1, summarize(employment_prob_nilf) nosta nofreq
 ta gender_female consumer_smarstat_m if vote_eligible == 1, summarize(employment_status_nilf) nosta nofreq
@@ -293,6 +286,30 @@ ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_prob_un) nosta no
 ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_status_un) nosta nofreq
 ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_prob_em) nosta nofreq
 ta pumaRisk_bucket if vote_eligible == 1, summarize(employment_status_em) nosta nofreq
+
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta nomeans
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta nofreq
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_status_nilf) nosta nofreq
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_prob_un) nosta nofreq
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_status_un) nosta nofreq
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_prob_em) nosta nofreq
+ta unemployment_rate_bucket if vote_eligible == 1, summarize(employment_status_em) nosta nofreq
+
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta nomeans
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta nofreq
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_status_nilf) nosta nofreq
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_prob_un) nosta nofreq
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_status_un) nosta nofreq
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_prob_em) nosta nofreq
+ta ind_23_bucket if vote_eligible == 1, summarize(employment_status_em) nosta nofreq
+
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta nomeans
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_prob_nilf) nosta nofreq
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_status_nilf) nosta nofreq
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_prob_un) nosta nofreq
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_status_un) nosta nofreq
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_prob_em) nosta nofreq
+ta ind_31to33_bucket if vote_eligible == 1, summarize(employment_status_em) nosta nofreq
 
 *Old Model and verification
 set matsize 500
