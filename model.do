@@ -1,10 +1,8 @@
 clear all
 
-/*Testing branch stuff*/
-
 set more off
 
-use C:\Users\bcorwin\Desktop\acs.dta
+use acs.dta
 
 *Data from: http://usa.ipums.org/usa-action/variables/group
 
@@ -141,7 +139,20 @@ gen unemployment_rate_bucket = ""
 	replace unemployment_rate_bucket = "24-26" if unemployment_rate_oct11_puma >= 24 & unemployment_rate_oct11_puma < 26
 	replace unemployment_rate_bucket = "26-28" if unemployment_rate_oct11_puma >= 26 & unemployment_rate_oct11_puma < 28
 	replace unemployment_rate_bucket = "28-30" if unemployment_rate_oct11_puma >= 28 & unemployment_rate_oct11_puma <= 30
-tab unemployment_rate_bucket, gen (unemployment_rate_d)	
+
+gen unemployment_rate_2010_bucket = ""
+	replace unemployment_rate_2010_bucket = "06-8" if unemployment_rate_2010_puma >= 6 & unemployment_rate_2010_puma < 8
+	replace unemployment_rate_2010_bucket = "08-10" if unemployment_rate_2010_puma >= 8 & unemployment_rate_2010_puma < 10
+	replace unemployment_rate_2010_bucket = "10-12" if unemployment_rate_2010_puma >= 10 & unemployment_rate_2010_puma < 12
+	replace unemployment_rate_2010_bucket = "12-14" if unemployment_rate_2010_puma >= 12 & unemployment_rate_2010_puma < 14
+	replace unemployment_rate_2010_bucket = "14-16" if unemployment_rate_2010_puma >= 14 & unemployment_rate_2010_puma < 16
+	replace unemployment_rate_2010_bucket = "16-18" if unemployment_rate_2010_puma >= 16 & unemployment_rate_2010_puma < 18
+	replace unemployment_rate_2010_bucket = "18-20" if unemployment_rate_2010_puma >= 18 & unemployment_rate_2010_puma < 20
+	replace unemployment_rate_2010_bucket = "20-22" if unemployment_rate_2010_puma >= 20 & unemployment_rate_2010_puma < 22
+	replace unemployment_rate_2010_bucket = "22-24" if unemployment_rate_2010_puma >= 22 & unemployment_rate_2010_puma < 24
+	replace unemployment_rate_2010_bucket = "24-26" if unemployment_rate_2010_puma >= 24 & unemployment_rate_2010_puma < 26
+	replace unemployment_rate_2010_bucket = "26-28" if unemployment_rate_2010_puma >= 26 & unemployment_rate_2010_puma < 28
+	replace unemployment_rate_2010_bucket = "28-30" if unemployment_rate_2010_puma >= 28 & unemployment_rate_2010_puma <= 30	
 	
 **Interactions
 gen married_female = gender_female*consumer_smarstat_m
@@ -176,7 +187,7 @@ gen employment_status_em = 0
 mlogit employment_status age_1824 age_2534 age_3544 age_5564 age_6574 age_75plus ///
 	state_d1-state_d4 state_d6-state_d51 ///
 	ln_income famsize gender_female consumer_smarstat_m race_black hispanic_general married_female ///
-	pumaRisk pumaRisk_sq unemployment_rate_oct11_puma ///
+	pumaRisk pumaRisk_sq unemployment_rate_2010_puma ///
 	ind_23_puma ind_31to33_puma ///
 	[aw = perwt] if vote_eligible == 1 & oos == 0
 
